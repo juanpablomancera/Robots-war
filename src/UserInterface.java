@@ -10,10 +10,18 @@ public class UserInterface {
         scanner = new Scanner(System.in).useDelimiter("\n");
     }
 
+    /**
+     * Prints the actual turn with all the robots info
+     * @param robot robot of the current turn
+     * */
     void showTurn(Robot robot){
         System.out.println("Turn of the robot " + robot.getName() + ". Actual Location: "+robot.getLocation()+". Goal square "+robot.getGoal()+".");
     }
 
+    /**
+     * Prints the movement options or to laid a mine
+     * @return int of the selected option
+     * */
     public int menu(Robot robot){
         System.out.print("1. Up (moves a square up)\n" +
                 "2. Down (moves a square down)\n" +
@@ -25,8 +33,15 @@ public class UserInterface {
         return scanner.nextInt();
     }
 
-    public void message(int tipoMensaje, Robot robot){
-        switch(tipoMensaje){
+    /**
+     * Returns the end of game message
+     * @param message how the game has ended
+     *                ROBOT_DESTROYED -> The robot has stepped on a mine
+     *                GOAL_ACHIEVED -> The robot has reached the target
+     * @param robot the robot that has finished the game
+     * */
+    public void message(int message, Robot robot){
+        switch(message){
             case ROBOT_DESTROYED:
                 System.out.println("¡¡Robot "+robot.getName()+" destroyed!! The robot has stepped on a mine in square "+  robot.getLocation()+"\n");
                 break;
@@ -36,14 +51,24 @@ public class UserInterface {
         }
     }
 
+    /**
+     * Set one dimension of the board (height or width)
+     * @param dimension which dimension you choose
+     * @return int the choosen size
+     * */
     public int getBoardDimension(String dimension){
         System.out.print(dimension + " of the board: " +
                 "");
         return scanner.nextInt();
     }
 
-    public String getRobostNames(String nombres){
-        System.out.print("Name of the robot "+nombres+" : ");
+    /**
+     * Set one dimension of the board (height or width)
+     * @param name which robot is (1 or 2)
+     * @return string with the robots name
+     * */
+    public String getRobostNames(String name){
+        System.out.print("Name of the robot "+ name +" : ");
         return scanner.next();
     }
 

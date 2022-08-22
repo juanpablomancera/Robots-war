@@ -6,6 +6,9 @@ public class CustomPoint extends Point {
         super(x,y);
     }
 
+    /**
+     * Modify how the robot's position looks to make it more beautiful.
+     * */
     @Override
     public String toString() {
         return "(" + this.x + "," + this.y + ")";
